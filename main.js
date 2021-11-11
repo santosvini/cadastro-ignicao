@@ -57,7 +57,7 @@ const saveChildren = () => {
     } 
 }
 
-const createRow = (children) => {
+const createRow = (children, index) => {
     const newRow = document.createElement('tr')
     newRow.innerHTML = `
         <td>${children.nome}</td>
@@ -65,8 +65,8 @@ const createRow = (children) => {
         <td>${children.celular}</td>
         <td>${children.responsavel}</td>
         <td>
-           <button type="button" class="button yellow">Editar</button>
-           <button type="button" class="button lemon">Sair</button>
+           <button type="button" class="button yellow" id="edit-${index}">Editar</button>
+           <button type="button" class="button lemon" id="out-${index}">Sair</button>
         </td>
     `
     document.querySelector('#tableChildren>tbody').appendChild(newRow)
@@ -86,7 +86,14 @@ const updateTable = () => {
 
 const editDelete = (event) => {
     if (event.target.type == 'button') {
-        console.log(event.target.type)
+
+        const [action, index] = event.target.id.split('-')
+
+        if (action == 'edit') {
+            console.log ("editando dados da criança")
+        } else {
+            console.log ("Criança saiu!")
+        }
     }
 }
 
