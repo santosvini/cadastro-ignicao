@@ -12,16 +12,13 @@
   top: 0;
 }
 
-#modal-back + .modal-content {
-  top: -100vh;
-}
-
 #modal-back.active + .modal-content {
   top: 0;
 }
 
 .modal-content {
   position: relative;
+  top: -100vh;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -32,12 +29,11 @@
   box-shadow: 1px 1px 10px black; 
   z-index: 2;
 
-  transition: top 500ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: top 500ms cubic-bezier(0.5, 1, 0.22, 1);
 }
 
 .modal-header {
   display: flex;
-  position: relative;
   justify-content: center;
   height: 40px;
   line-height: 40px;
@@ -49,13 +45,13 @@
 }
 
 .modal-close {
+  position: absolute;
+  right: 0;
   display: block;
   width: 40px;
   height: 40px;
-  text-align: center;
   user-select: none;
   cursor: pointer;
-  margin-left: auto;
 }
 
 .modal-close:hover {
