@@ -1,11 +1,11 @@
 'use strict'
 
-const openModal = () => document.getElementById('modal')
+const openModal = () => document.getElementById('modal-back')
     .classList.add('active')
 
 const closeModal = () => {
     clearFields()
-    document.getElementById('modal').classList.remove('active')
+    document.getElementById('modal-back').classList.remove('active')
 }
 
 const getLocalStorage = () => JSON.parse(localStorage.getItem('db_children')) ?? []
