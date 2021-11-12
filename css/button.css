@@ -33,6 +33,10 @@
   box-shadow: inset 200px 0 0 #00000055;
 }
 
+.button.lemon:hover {
+  box-shadow: inset 200px 0 0 red;
+}
+
 @media (max-width:930px) {
   .button.mobile {
     color: transparent;

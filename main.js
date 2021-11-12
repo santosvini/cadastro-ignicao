@@ -26,7 +26,7 @@ const updateChildren = (index, children) => {
     setLocalStorage(dbChildren)
 }
 
-const deleteClient = (index) => {
+const deleteChildren = (index) => {
     const dbChildren = readChildren()
     dbChildren.splice(index,1)
     setLocalStorage(dbChildren)
@@ -51,9 +51,17 @@ const saveChildren = () => {
            celular: document.getElementById('celular').value,
            responsavel: document.getElementById('responsavel').value
         }
-        createChildren(children)
-        updateTable()
-        closeModal()
+        const index = document.getElementById('nome').dataset.index
+        if (index == 'new') {
+            createChildren(children)
+            updateTable()
+            closeModal()
+        } else {
+            updateChildren(index, children)
+            updateTable()
+            closeModal()
+        }
+            
     } 
 }
 
@@ -66,11 +74,10 @@ const createRow = (children, index) => {
         <td>${children.responsavel}</td>
         <td>
            <button type="button" class="button yellow" id="edit-${index}">Editar</button>
-           <button type="button" class="button lemon" id="out-${index}">Sair</button>
+           <button type="button" class="button lemon" id="out-${index}">Saída</button>
         </td>
     `
     document.querySelector('#tableChildren>tbody').appendChild(newRow)
-
 }
 
 const clearTable = () => {
@@ -84,15 +91,35 @@ const updateTable = () => {
     dbChildren.forEach(createRow)
 }
 
+const fillFields = (children) => {
+    document.getElementById('nome').value = children.nome
+    document.getElementById('faixa').value = children.faixa
+    document.getElementById('celular').value = children.celular
+    document.getElementById('responsavel').value = children.responsavel
+    document.getElementById('nome').dataset.index = children.index
+} 
+
+const editChildren = (index) => {
+    const children = readChildren()[index]
+    children.index = index
+    fillFields(children)
+    openModal()
+}
+
 const editDelete = (event) => {
     if (event.target.type == 'button') {
 
         const [action, index] = event.target.id.split('-')
 
         if (action == 'edit') {
-            console.log ("editando dados da criança")
+            editChildren(index)
         } else {
-            console.log ("Criança saiu!")
+            const children = readChildren()[index]
+            const response = confirm(`Confirma a saída da criança: ${children.nome}`)
+            if (response) {
+                deleteChildren(index)
+                updateTable()
+            }
         }
     }
 }
