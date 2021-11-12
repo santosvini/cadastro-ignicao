@@ -45,8 +45,8 @@
     height: 50px;
     border-radius: 50%;
     position: fixed;
-    top: 90vh;
-    left: 80vw;
+    top: 15vh;
+    right: 5vw;
   }
   .button.mobile:before {
     content: "+";
