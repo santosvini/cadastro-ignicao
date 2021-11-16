@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "21ed7065-085a-49ac-9e86-bcef3a75f393",
+		"name": "Ignicao",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8888/ignicao/listarCriancas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8888/ignicao/listarCriancas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"ignicao",
+						"listarCriancas"
+					]
+				},
+				"description": "Listar dados"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8888/ignicao/salvarCrianca",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Teste\",\r\n    \"faixaEtaria\": \"Teste\",\r\n    \"celular\": \"(12)91234-5678\",\r\n    \"responsavel\": \"Teste\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/ignicao/salvarCrianca",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"ignicao",
+						"salvarCrianca"
+					]
+				},
+				"description": "Salvar dados"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8888/ignicao/apagarCrianca",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idCrianca",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8888/ignicao/apagarCrianca",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"ignicao",
+						"apagarCrianca"
+					]
+				},
+				"description": "Deletar dados"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8888/ignicao/pesquisarPorNome",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nome",
+							"value": "Teste",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8888/ignicao/pesquisarPorNome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"ignicao",
+						"pesquisarPorNome"
+					]
+				},
+				"description": "Pesquisar por nome"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8888/ignicao/atualizarCrianca",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCrianca\": 1,\r\n    \"nome\": \"Teste\",\r\n    \"faixaEtaria\": \"Teste\",\r\n    \"celular\": \"(12)91234-5678\",\r\n    \"responsavel\": \"Teste\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/ignicao/atualizarCrianca",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"ignicao",
+						"atualizarCrianca"
+					]
+				},
+				"description": "Atualizar dados"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8888/ignicao/pesquisarCriancaPorCodigo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idCrianca",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8888/ignicao/pesquisarCriancaPorCodigo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"ignicao",
+						"pesquisarCriancaPorCodigo"
+					]
+				},
+				"description": "Buscar dados por ID"
+			},
+			"response": []
+		}
+	]
+}
